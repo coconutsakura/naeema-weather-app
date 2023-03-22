@@ -21,7 +21,7 @@ function formatDate(date) {
   ];
   let day = days[dayLog];
 
-  return `${day} ${hours}:${minutes}, clear skies`;
+  return `${day} ${hours}:${minutes}`;
 }
 
 function displayWeather(response) {
@@ -32,8 +32,10 @@ function displayWeather(response) {
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
-    response.data.main.wind.speed
+    response.data.wind.speed
   );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
 }
 
 function search(event) {
